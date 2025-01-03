@@ -7,7 +7,7 @@ MQTT client for Arduino ESP32.
 
 ### Version History
 ```
-v.1.0.0 - initial release, developed on arduino-esp32 v3.1.0 (which is based on ESP-IDF v5.3.2)
+v1.0.0 - initial release, developed on arduino-esp32 v3.1.0 (which is based on ESP-IDF v5.3.2)
 ```
 
 ### Usage
