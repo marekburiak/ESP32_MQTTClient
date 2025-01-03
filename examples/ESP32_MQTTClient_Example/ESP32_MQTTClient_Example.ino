@@ -1,13 +1,13 @@
 /*
-	Name:       ESP32_MQTTClient_Example.ino
-	Created:	1/1/2025 6:43:43 PM
-	Author:     Marek Buriak
-	Description: In this example, ESP32 connects to wi-fi and then to MQTT broker.
-				 It then publishes to lastWillTopic, subscribes to testTopic and publishes to testTopic.
-				 That triggers onMqttMessageReceived handler. After a few seconds it unsubscribes from testTopic,
-				 stops the client and disconnects from broker.
-				 There are other event handlers triggered during the above flow. The expected Serial output 
-				 is at the bottom of this file.
+Name:        ESP32_MQTTClient_Example.ino
+Created:	 1/1/2025 6:43:43 PM
+Author:      Marek Buriak
+Description: In this example, ESP32 connects to wi-fi and then to MQTT broker.
+             It then publishes to lastWillTopic, subscribes to testTopic and publishes to testTopic.
+             That triggers onMqttMessageReceived handler. After a few seconds it unsubscribes from testTopic,
+             stops the client and disconnects from broker.
+             There are other event handlers triggered during the above flow. The expected Serial output 
+             is at the bottom of this file.
 */
 
 #include "Arduino.h"
