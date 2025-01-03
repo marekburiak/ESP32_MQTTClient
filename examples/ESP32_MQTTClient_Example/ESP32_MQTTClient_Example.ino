@@ -37,7 +37,7 @@ void setup()
 	// set params for MQTT connection
 	_mqttClient.setBrokerUri(mqttBrokerUri);
 	//_mqttClient.setCredentials(mqttUser, mqttPass);
-	//_mqttClient.setKeepAlive(30);
+	//_mqttClient.setKeepAlive(15);
 
 	// set last will message to indicate that the esp is offline
 	_mqttClient.setLastWillMessage(lastWillTopic, "offline", qos, true);
