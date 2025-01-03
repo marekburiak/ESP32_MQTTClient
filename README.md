@@ -51,7 +51,8 @@ void onWiFiEvent(WiFiEvent_t event, WiFiEventInfo_t info)
 	}
 }
 
-void onMqttConnected(int sessionPresent) {
+void onMqttConnected(int sessionPresent) 
+{
 	Serial.println("MQTT broker connected");
 
 	// subscribe to testTopic
@@ -63,7 +64,8 @@ void onMqttConnected(int sessionPresent) {
 	_mqttClient.publish(testTopic, "hello");
 }
 
-void onMqttMessageReceived(int msgId, char* topic, int topicLen, char* data, int dataLen, int currentDataOffset, int totalDataLen, bool retain, int qos, bool dup) {
+void onMqttMessageReceived(int msgId, char* topic, int topicLen, char* data, int dataLen, int currentDataOffset, int totalDataLen, bool retain, int qos, bool dup) 
+{
 	Serial.print("MQTT message received, topic: ");
 	Serial.write(topic, topicLen);	// topic is not terminated by a null char!
 	Serial.print(", data: ");
