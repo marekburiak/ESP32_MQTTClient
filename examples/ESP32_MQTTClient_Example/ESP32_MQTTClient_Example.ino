@@ -16,8 +16,6 @@
 #include <mqtt_client.h>
 #include <ESP32_MQTTClient.h>
 
-const char* clientName = "ESP32_MQTTClient_Example_Client";
-
 const char* wifiSSID = "your-wifi-ssid";
 const char* wifiPass = "your-wifi-pwd";
 
@@ -38,7 +36,6 @@ void setup()
 
 	// set params for MQTT connection
 	_mqttClient.setBrokerUri(mqttBrokerUri);
-	_mqttClient.setClientName(clientName);
 	//_mqttClient.setCredentials(mqttUser, mqttPass);
 	//_mqttClient.setKeepAlive(30);
 
@@ -56,9 +53,8 @@ void setup()
 	_mqttClient.onMqttError(onMqttError);
 
 	// start wifi
-	WiFi.begin(wifiSSID, wifiPass);
-	WiFi.setHostname(clientName);
 	WiFi.onEvent(onWiFiEvent);
+	WiFi.begin(wifiSSID, wifiPass);
 }
 
 // when wifi is connected, start MQTT client
@@ -90,8 +86,6 @@ void onMqttBeforeConnect() {
 	Serial.println("--- onMqttBeforeConnect");
 	Serial.print("------ Connecting to MQTT broker: ");
 	Serial.print(_mqttClient.getURI());
-	Serial.print(", client name: ");
-	Serial.println(_mqttClient.getClientName());
 }
 
 void onMqttConnected(int sessionPresent) {
@@ -221,23 +215,23 @@ Expected Serial output:
 --- WiFi connected, IP address: 192.168.1.213
 --- MQTT Client start successful
 --- onMqttBeforeConnect
------- Connecting to MQTT broker: mqtt://192.168.1.100:1883, client name: ESP32_MQTTClient_Example_Client
+------ Connecting to MQTT broker: mqtt://broker.hivemq.com:1883
 --- onMqttConnected
 ------ MQTT broker connected
------- Publishing to topic MQTTTest/status, qos: 1, msgId: 6406
------- Subscribing to topic MQTTTest/testTopic, qos: 1, msgId: 44990
------- Publishing to topic MQTTTest/testTopic, qos: 1, msgId: 16514
+------ Publishing to topic ESP32_MQTTClient/status, qos: 1, msgId: 13429
+------ Subscribing to topic ESP32_MQTTClient/testTopic, qos: 1, msgId: 20688
+------ Publishing to topic ESP32_MQTTClient/testTopic, qos: 1, msgId: 21702
 --- onMqttMessagePublishConfirmed
------- MQTT message publish confirmed by broker, msgId: 6406
+------ MQTT message publish confirmed by broker, msgId: 13429
 --- onMqttTopicSubscribed
------- MQTT topic subscribed, msgId: 44990
+------ MQTT topic subscribed, msgId: 20688
 --- onMqttMessageReceived
------- MQTT message received, msgId: 1, topic: MQTTTest/testTopic, data: hello, qos: 1
+------ MQTT message received, msgId: 51, topic: ESP32_MQTTClient/testTopic, data: hello, qos: 1
 --- onMqttMessagePublishConfirmed
------- MQTT message publish confirmed by broker, msgId: 16514
---- Unsubscribing from MQTTTest/testTopic, msgId: 54710
+------ MQTT message publish confirmed by broker, msgId: 21702
+--- Unsubscribing from ESP32_MQTTClient/testTopic, msgId: 58723
 --- onMqttTopicUnsubscribed
------- MQTT topic unsubscribed, msgId: 54710
+------ MQTT topic unsubscribed, msgId: 58723
 
 --- If you power off your ESP now, it will trigger the last will by the broker after at least 45.00 seconds
 
