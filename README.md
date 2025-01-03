@@ -5,7 +5,7 @@ MQTT client for Arduino ESP32.
 - based on ESP32MQTTClient from cyijun: https://github.com/cyijun/ESP32MQTTClient
 - it's a wrapper class for a thread-safe ESP-IDF mqtt-client: https://docs.espressif.com/projects/esp-idf/en/v5.3.2/esp32/api-reference/protocols/mqtt.html
 
-### Version History:
+### Version History
 ```
 v.1.0.0 - initial release, developed on arduino-esp32 v3.1.0 (which is based on ESP-IDF v5.3.2)
 ```
