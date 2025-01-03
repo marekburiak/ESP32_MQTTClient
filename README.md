@@ -12,7 +12,7 @@ v.1.0.0 - initial release, developed on arduino-esp32 v3.1.0 (which is based on 
 
 ### Usage
 
-```
+```c++
 #include "Arduino.h"
 #include <WiFi.h>
 #include <Network.h>
